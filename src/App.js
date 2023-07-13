@@ -1,12 +1,21 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Resume from "./components/Resume";
 
-function App() {
+const App = () => {
+  const [result, setResult] = useState({});
+
   return (
-    <div className="App">
-      <h1>Resume Builder APP</h1>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home setResult={setResult} />} />
+          <Route path="/resume" element={<Resume result={result} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
