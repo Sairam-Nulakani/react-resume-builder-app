@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Loading from "./Loading";
 
 const Home = ({ setResult }) => {
   const formik = useFormik({
@@ -79,6 +80,9 @@ const Home = ({ setResult }) => {
 
     setLoading(true);
   };
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main className="h-screen flex flex-col items-center justify-center">
